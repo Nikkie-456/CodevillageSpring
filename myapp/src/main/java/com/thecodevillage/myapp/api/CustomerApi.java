@@ -1,8 +1,10 @@
 package com.thecodevillage.myapp.api;
 
 import com.thecodevillage.myapp.models.Customer;
+import com.thecodevillage.myapp.service.BankService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +33,21 @@ public class CustomerApi {
 
         System.out.println("Total No. Of Customers are:"+customers.size());
         return new ResponseEntity(customers, HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/all/db",method = RequestMethod.GET)
+    public ResponseEntity getAllCustomersFromDb(){
+        System.out.println("Customer API FROM DB Called# ");
+        List<Customer> customers= BankService.getCustomers();
+        return new ResponseEntity<>(BankService.getCustomers(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/create",method = RequestMethod.POST)
+    public ResponseEntity createCustomer(@RequestBody Customer customer){
+        System.out.println("Customer Save Customer in DB Called# ");
+
+        System.out.println("Name: "+customer.getName());
+        return new ResponseEntity<>(BankService.saveCustomer(customer), HttpStatus.OK);
     }
 
 }
