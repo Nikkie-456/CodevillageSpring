@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface CustomerRepository extends PagingAndSortingRepository<Customer,Long> {
 
-    List<Customer> findallCustomer();
+    List<Customer> findAllCustomers();
 
     Optional<Customer> findByidNumber(@Param("idNumber") String idNumber);
 }

@@ -4,9 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Getter
@@ -14,8 +12,13 @@ import java.io.Serializable;
 @ToString
 @Entity
 @Table(name="cash_customers")
+@NamedQueries({
+        @NamedQuery(name = "Customer.findAllCustomers",query = "select c from Customer c")
+})
+
 public class Customer implements Serializable {
    @Id
+   @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String idNumber;
     private String name;
