@@ -12,4 +12,8 @@ public interface AccountRepository extends PagingAndSortingRepository<Account,Lo
     List<Account> findAllAccs();
 
     Optional<Account> findByaccCode(@Param("accCode") String accCode);
+
+    Optional<Account> findByCustId(@Param("custId") long id);
+
+
 }

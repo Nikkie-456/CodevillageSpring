@@ -17,15 +17,25 @@ public class Account implements Serializable {
     private long id;
     private String accCode;
     private String accName;
+    private long custId;
+
+    public long getCustId() {
+        return custId;
+    }
+
+    public void setCustId(long custId) {
+        this.custId = custId;
+    }
 
     public Account(){
 
     }
 
-    public Account(long id, String accCode, String accName) {
+    public Account(long id, String accCode, String accName,long custId) {
         this.id = id;
         this.accCode = accCode;
         this.accName = accName;
+        this.custId = custId;
     }
 
     public long getId() {

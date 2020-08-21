@@ -1,5 +1,6 @@
 package com.thecodevillage.myapp.service;
 
+import com.thecodevillage.myapp.models.AccCreateMul;
 import com.thecodevillage.myapp.models.Account;
 import com.thecodevillage.myapp.models.BankMenu;
 import com.thecodevillage.myapp.models.Customer;
@@ -8,6 +9,7 @@ import com.thecodevillage.myapp.repositories.BankMenuRepository;
 import com.thecodevillage.myapp.repositories.CurrencyRepository;
 import com.thecodevillage.myapp.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +35,11 @@ public class BankServiceImpl implements BankService {
     @Override
     public List<Customer> getCustomers() {
         return customerRepository.findAllCustomers();
+    }
+
+    @Override
+    public Customer getCustomerById(Long id) {
+        return customerRepository.findById(id).get();
     }
 
     @Override
@@ -75,10 +82,28 @@ public class BankServiceImpl implements BankService {
     public Account findByaccCode(String accCode){return null;}
 
     @Override
-    public Account saveAccount(Account account){return  accountRepository.save(account);}
+    public Account findBycustId(long id){return null;}
+
+    @Override
+    public Account saveAccount(Account account){
+        return  accountRepository.save(account);
+    }
 
     @Override
     public Account updateAccount(Account account){return  accountRepository.save(account);}
+
+    @Override
+    public AccCreateMul saveMulAcc(AccCreateMul accCreateMul) {
+        return null;
+    }
+
+    @Override
+    public AccCreateMul createMulAcc(AccCreateMul accCreateMul) {
+        for (Account account: accCreateMul.getAccounts()){
+            saveMulAcc(accCreateMul);
+        }
+        return accCreateMul;
+    }
 
 
 }

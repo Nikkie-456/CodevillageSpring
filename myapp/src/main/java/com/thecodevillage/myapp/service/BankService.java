@@ -1,5 +1,6 @@
 package com.thecodevillage.myapp.service;
 
+import com.thecodevillage.myapp.models.AccCreateMul;
 import com.thecodevillage.myapp.models.Account;
 import com.thecodevillage.myapp.models.BankMenu;
 import com.thecodevillage.myapp.models.Customer;
@@ -8,6 +9,8 @@ import java.util.List;
 
 public interface BankService {
     List<Customer> getCustomers();
+
+    Customer getCustomerById(Long id);
 
     Customer getCustomerByidNumber(String idNumber);
 
@@ -32,7 +35,13 @@ public interface BankService {
 
     Account findByaccCode(String accCode);
 
+    Account findBycustId(long id);
+
     Account saveAccount(Account account);
 
     Account updateAccount(Account account);
+
+    AccCreateMul saveMulAcc(AccCreateMul accCreateMul);
+
+    AccCreateMul createMulAcc(AccCreateMul accCreateMul);
 }

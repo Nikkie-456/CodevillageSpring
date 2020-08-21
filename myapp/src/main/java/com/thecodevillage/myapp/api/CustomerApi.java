@@ -1,5 +1,6 @@
 package com.thecodevillage.myapp.api;
 
+import com.thecodevillage.myapp.models.AccCreateMul;
 import com.thecodevillage.myapp.models.Account;
 import com.thecodevillage.myapp.models.BankMenu;
 import com.thecodevillage.myapp.models.Customer;
@@ -124,6 +125,11 @@ public class CustomerApi {
         return new ResponseEntity<>(bankService.updateAccount(account), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/account/multiple",method = RequestMethod.POST)
+    public ResponseEntity updateCustomerBulk(@RequestBody AccCreateMul accCreateMul){
+        System.out.println("Create Multiple Accounts");
+        return new ResponseEntity<>(bankService.createMulAcc(accCreateMul), HttpStatus.OK);
+    }
 
 
 
