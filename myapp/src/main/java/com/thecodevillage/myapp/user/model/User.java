@@ -8,8 +8,8 @@ import java.io.Serializable;
 @ToString
 @Table(name="mk_users")
 @Entity
-@NamedQueries({@NamedQuery(name="User.fetchAllUsers",query = "select u from Users u")})
-
+@NamedQueries({@NamedQuery(name="User.fetchAllUsers",query = "select u from User u")})
+@NamedQuery(name = "User.findUsersByCode",query = "select u from User u where u.userCode= :userCode")
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

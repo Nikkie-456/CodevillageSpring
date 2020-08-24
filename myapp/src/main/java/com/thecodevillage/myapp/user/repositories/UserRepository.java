@@ -4,6 +4,7 @@ import com.thecodevillage.myapp.user.model.User;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
 
+import javax.persistence.NamedQuery;
 import java.util.List;
 import java.util.Optional;
 

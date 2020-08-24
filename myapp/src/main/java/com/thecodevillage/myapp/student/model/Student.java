@@ -9,20 +9,22 @@ import java.io.Serializable;
 @ToString
 @Table(name="mst_student")
 @NamedQueries({@NamedQuery(name = "Student.fetchAllStudents",query = "select s from Student s")})
-
+@NamedQuery(name = "Student.findStudentById",query = "select s from Student s where s.studId= :studId")
 public class Student implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String studId;
     private String studName;
+    private String roomNo;
 
     public Student(){}
 
-    public Student(long id, String studId, String studName) {
+    public Student(long id, String studId, String studName, String roomNo) {
         this.id = id;
         this.studId = studId;
         this.studName = studName;
+        this.roomNo = roomNo;
     }
 
     public long getId() {
@@ -47,5 +49,13 @@ public class Student implements Serializable {
 
     public void setStudName(String studName) {
         this.studName = studName;
+    }
+
+    public String getRoomNo() {
+        return roomNo;
+    }
+
+    public void setRoomNo(String roomNo) {
+        this.roomNo = roomNo;
     }
 }

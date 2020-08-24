@@ -2,6 +2,7 @@ package com.thecodevillage.myapp.student.service;
 
 import com.thecodevillage.myapp.student.model.Student;
 import com.thecodevillage.myapp.student.repositories.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,6 +12,7 @@ public class StudentServImpl implements StudentService{
 
     private StudentRepository studentRepository;
 
+     @Autowired
     public StudentServImpl(StudentRepository studentRepository){this.studentRepository=studentRepository;}
 
 

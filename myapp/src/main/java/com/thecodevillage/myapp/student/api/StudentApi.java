@@ -48,7 +48,7 @@ public class StudentApi {
     }
 
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
-    public ResponseEntity editMenu(@RequestBody Student student){
+    public ResponseEntity editStudent(@RequestBody Student student){
         try{
             System.out.println("Edit Student Details");
             System.out.println("Student Name: " +student.getStudName());
