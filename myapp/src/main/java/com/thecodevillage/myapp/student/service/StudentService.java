@@ -1,16 +1,17 @@
 package com.thecodevillage.myapp.student.service;
 
+import com.thecodevillage.myapp.item.models.GenericResponse;
 import com.thecodevillage.myapp.student.model.Student;
 
 import java.util.List;
 
 public interface StudentService {
 
-    List<Student> fetchAllStudents();
+    GenericResponse fetchAllStudents();
 
-    Student getStudentById(String studId);
+    GenericResponse  getStudentById(String studId);
 
-    Student saveStudent(Student student);
+    GenericResponse  saveStudent(Student student);
 
-    Student updateStudent(Student student);
+    GenericResponse  updateStudent(Student student);
 }

@@ -21,7 +21,10 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public GenericResponse fetchAllUsers() {
-        return null;
+        List<User> user1 = userRepository.fetchAllUsers();
+        if (user1.size() > 0){
+            return new GenericResponse(2001, "User Fetched Successfully",user1);}
+            return new GenericResponse(2005, "Error Fetching User");
     }
 
     @Override
@@ -39,7 +42,10 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public GenericResponse updateUser(User user) {
-        return null;
+        User user1 = userRepository.save(user);
+        if (user1.getId() > 0){
+            return new GenericResponse(2002, "Updations Are Success",user1);}
+            return new GenericResponse(2006, "Error Updating User");
     }
 
 

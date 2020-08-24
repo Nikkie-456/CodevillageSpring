@@ -1,16 +1,18 @@
 package com.thecodevillage.myapp.room.service;
 
+import com.thecodevillage.myapp.item.models.GenericResponse;
 import com.thecodevillage.myapp.room.model.Room;
 
 import java.util.List;
 
 public interface RoomService {
 
-    List<Room> fetchAllRooms();
+    GenericResponse fetchAllRooms();
 
-    Room getRoomByNo(String roomNo);
+    GenericResponse getRoomByNo(String roomNo);
 
-    Room saveRoom(Room room);
+    GenericResponse saveRoom(Room room);
 
-    Room updateRoom(Room room);
+    GenericResponse updateRoom(Room room);
+
 }

@@ -40,11 +40,7 @@ public class UserApi {
    @RequestMapping(value = "/view", method = RequestMethod.GET)
    public ResponseEntity viewUsers() {
         System.out.println("Fetch Users from  Database ");
-
-        List<User> users = userService.fetchAllUsers();
-
-       GenericResponse genericResponse = new GenericResponse(2002, "Users Fetched Successfully", users);
-
+        Object genericResponse = userService.fetchAllUsers();
        return new ResponseEntity<>(genericResponse, HttpStatus.OK);
-   }
+  }
 }

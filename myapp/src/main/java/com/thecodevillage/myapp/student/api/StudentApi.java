@@ -27,8 +27,7 @@ public class StudentApi {
         try{
             System.out.println("Create New Student");
             System.out.println("Student Name: " +student.getStudName());
-            studentService.saveStudent(student);
-            GenericResponse genericResponse = new GenericResponse(2001, "Student Created Successfully", student);
+            Object genericResponse=studentService.saveStudent(student);
             return new ResponseEntity<>(genericResponse, HttpStatus.OK);}
         catch (Exception h){
             System.out.println("Error while creating Student.");
@@ -40,10 +39,7 @@ public class StudentApi {
     public ResponseEntity viewStudents() {
         System.out.println("Fetch Students from  Database ");
 
-        List<Student> students = studentService.fetchAllStudents();
-
-        GenericResponse genericResponse = new GenericResponse(2002, "Students Fetched Successfully", students);
-
+        Object genericResponse = studentService.fetchAllStudents();
         return new ResponseEntity<>(genericResponse, HttpStatus.OK);
     }
 
@@ -52,8 +48,7 @@ public class StudentApi {
         try{
             System.out.println("Edit Student Details");
             System.out.println("Student Name: " +student.getStudName());
-            studentService.updateStudent(student);
-            GenericResponse genericResponse = new GenericResponse(2001, "Updations Done Successfully", student);
+            Object genericResponse= studentService.updateStudent(student);
             return new ResponseEntity<>(genericResponse, HttpStatus.OK);}
         catch (Exception h){
             System.out.println("Error while updating Student Details.");

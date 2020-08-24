@@ -13,4 +13,6 @@ public interface UserRepository extends JpaRepository<User,Long> {
     List<User> fetchAllUsers();
 
     Optional<User> findUsersByCode(@Param("userCode") String userCode);
+
+//   User update(User user);
 }

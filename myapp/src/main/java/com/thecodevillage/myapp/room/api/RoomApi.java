@@ -30,8 +30,7 @@ public class RoomApi {
         try{
             System.out.println("Create New Room");
             System.out.println("Room Name: " +room.getRoomDesc());
-            roomService.saveRoom(room);
-            GenericResponse genericResponse = new GenericResponse(2001, "Room Created Successfully", room);
+            Object genericResponse = roomService.saveRoom(room);
             return new ResponseEntity<>(genericResponse, HttpStatus.OK);}
         catch (Exception h){
             System.out.println("Error while creating Room.");
@@ -42,11 +41,7 @@ public class RoomApi {
     @RequestMapping(value = "/view", method = RequestMethod.GET)
     public ResponseEntity viewRooms() {
         System.out.println("Fetch Rooms from  Database ");
-
-        List<Room> rooms = roomService.fetchAllRooms();
-
-        GenericResponse genericResponse = new GenericResponse(2002, "Rooms Fetched Successfully", rooms);
-
+        Object genericResponse = roomService.fetchAllRooms();
         return new ResponseEntity<>(genericResponse, HttpStatus.OK);
     }
 
@@ -55,8 +50,7 @@ public class RoomApi {
         try{
             System.out.println("Edit Room Details");
             System.out.println("Student Name: " +room.getRoomDesc());
-            roomService.updateRoom(room);
-            GenericResponse genericResponse = new GenericResponse(2001, "Updations Done Successfully", room);
+            Object genericResponse = roomService.updateRoom(room);
             return new ResponseEntity<>(genericResponse, HttpStatus.OK);}
         catch (Exception h){
             System.out.println("Error while updating Room Details.");

@@ -1,5 +1,6 @@
 package com.thecodevillage.myapp.student.service;
 
+import com.thecodevillage.myapp.item.models.GenericResponse;
 import com.thecodevillage.myapp.student.model.Student;
 import com.thecodevillage.myapp.student.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,22 +18,32 @@ public class StudentServImpl implements StudentService{
 
 
     @Override
-    public List<Student> fetchAllStudents() {
-        return null;
+    public GenericResponse fetchAllStudents() {
+        List<Student> student = studentRepository.fetchAllStudents();
+        if (student.size()> 0){
+            return new GenericResponse(2002, "Data Fetched Successful",student);}
+        return new GenericResponse(2006, "Error Fetching Data");
     }
 
     @Override
-    public Student getStudentById(String studId) {
+    public GenericResponse getStudentById(String studId) {
         return null;
     }
 
+
     @Override
-    public Student saveStudent(Student student) {
-        return null;
+    public GenericResponse saveStudent(Student student) {
+        Student student1 = studentRepository.save(student);
+        if (student.getId() > 0){
+            return new GenericResponse(2002, "Updations Are Successful",student1);}
+        return new GenericResponse(2006, "Error Updating Room");
     }
 
     @Override
-    public Student updateStudent(Student student) {
-        return null;
+    public GenericResponse updateStudent(Student student) {
+        Student student1 = studentRepository.save(student);
+        if (student.getId() > 0){
+            return new GenericResponse(2002, "Updations Are Successful",student1);}
+        return new GenericResponse(2006, "Error Updating Room");
     }
 }
