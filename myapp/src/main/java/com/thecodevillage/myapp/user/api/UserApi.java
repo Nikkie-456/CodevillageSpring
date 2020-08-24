@@ -37,14 +37,14 @@ public class UserApi {
         return null;
     }
 
-    @RequestMapping(value = "/view", method = RequestMethod.GET)
-    public ResponseEntity viewUsers() {
+   @RequestMapping(value = "/view", method = RequestMethod.GET)
+   public ResponseEntity viewUsers() {
         System.out.println("Fetch Users from  Database ");
 
         List<User> users = userService.fetchAllUsers();
 
-        GenericResponse genericResponse = new GenericResponse(2002, "Users Fetched Successfully", users);
+       GenericResponse genericResponse = new GenericResponse(2002, "Users Fetched Successfully", users);
 
-        return new ResponseEntity<>(genericResponse, HttpStatus.OK);
-    }
+       return new ResponseEntity<>(genericResponse, HttpStatus.OK);
+   }
 }

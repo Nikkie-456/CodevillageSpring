@@ -1,15 +1,16 @@
 package com.thecodevillage.myapp.user.service;
 
+import com.thecodevillage.myapp.item.models.GenericResponse;
 import com.thecodevillage.myapp.user.model.User;
 
 import java.util.List;
 
 public interface UserService {
-    List<User> fetchAllUsers();
+    GenericResponse fetchAllUsers();
 
-    User getUserByCode(String Code);
+    GenericResponse getUserByCode(String Code);
 
-    User saveUser(User user);
+    GenericResponse saveUser(User user);
 
-    User updateUser(User user);
+    GenericResponse updateUser(User user);
 }

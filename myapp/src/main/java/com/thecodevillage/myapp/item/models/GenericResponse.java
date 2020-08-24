@@ -12,6 +12,9 @@ public class GenericResponse {
         this.result = result;
     }
 
+    public GenericResponse(int i, String error_creating_user) {
+    }
+
     public int getStatus() {
         return status;
     }
